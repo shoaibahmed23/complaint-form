@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Complaint Form</title>
+</head>
+<body>
+  <h2>Complaint Form</h2>
+  <form id="complaintForm">
+    <label>Name:</label>
+    <input type="text" name="name" required><br><br>
+    
+    <label>Email:</label>
+    <input type="email" name="email" required><br><br>
+    
+    <label>Complaint:</label>
+    <textarea name="complaint" required></textarea><br><br>
+    
+    <button type="submit">Submit</button>
+  </form>
+
+  <script>
+    const scriptURL = "https://script.google.com/macros/s/AKfycbyVuvgMtsfuZZSseqqeXY-2RxmvkjgU2luC44lZMWqJS5EKcgn4duoXGI9nkL_Gh_NKng/exec";
+    const form = document.getElementById("complaintForm");
+
+    form.addEventListener("submit", e => {
+      e.preventDefault();
+
+      const data = {
+        name: form.name.value,
+        email: form.email.value,
+        complaint: form.complaint.value
+      };
+
+      fetch(scriptURL, {
+        method: "POST",
+        body: JSON.stringify(data)
+      })
+      .then(res => res.text())
+      .then(msg => alert("Complaint submitted successfully!"))
+      .catch(err => alert("Error: " + err));
+    });
+  </script>
+</body>
+</html>
