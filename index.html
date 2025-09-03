@@ -8,9 +8,25 @@
   <form id="complaintForm">
     <label>Name:</label>
     <input type="text" name="name" required><br><br>
-    
+	<label>Designation:</label>
+    <input type="text" name="A" required><br><br>
+	<label>Department:</label>
+    <input type="text" name="B" required><br><br>
+	<label>Station:</label>
+    <input type="text" name="C" required><br><br>
+	<label>PF No./PPO No.:</label>
+    <input type="text" name="D" required><br><br>
+	<label>HRMS ID:</label>
+    <input type="text" name="E" required><br><br>
+	<label>Bill Unit:</label>
+    <input type="text" name="F" required><br><br>
+	<label>Mobile No.:</label>
+    <input type="text" name="G" required><br><br>
+	<label>Retired Employee Address:</label>
+    <input type="text" name="H" required><br><br>
     <label>Email:</label>
     <input type="email" name="email" required><br><br>
+
     
     <label>Complaint:</label>
     <textarea name="complaint" required></textarea><br><br>
@@ -19,7 +35,7 @@
   </form>
 
   <script>
-    const scriptURL = "https://script.google.com/macros/s/AKfycbyVuvgMtsfuZZSseqqeXY-2RxmvkjgU2luC44lZMWqJS5EKcgn4duoXGI9nkL_Gh_NKng/exec";
+    const scriptURL = "https://script.google.com/macros/s/AKfycbxRFklXUb4lD5rjF0MjPSzIeBgbDvnZo6g5su6fcVUHNFJnorUdZpTMCoG1fLLoM7iydA/exec";
     const form = document.getElementById("complaintForm");
 
     form.addEventListener("submit", e => {
@@ -27,6 +43,14 @@
 
       const data = {
         name: form.name.value,
+		designation : form.A.value,
+		department : form.B.value,
+		station : form.C.value,
+		pf : form.D.value,
+		hrms: form.E.value,
+		bill : form.F.value,
+		mobile : form.G.value,
+		retired : form.H.value,
         email: form.email.value,
         complaint: form.complaint.value
       };
